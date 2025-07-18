@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Password Strength Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <div class="theme-switcher">
+        <i class="fas fa-sun"></i>
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle-checkbox" checked>
+            <span class="slider round"></span>
+        </label>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Password Strength Analyzer</h1>
+            <div class="gamification-header">
+                <span id="badge" class="badge"></span>
+                <div class="score-container">
+                    Score: <span id="score">0</span>/100
+                </div>
+            </div>
+        </header>
+
+        <div class="password-input-container">
+            <input type="password" id="password" placeholder="Enter your password">
+            <i class="fas fa-eye" id="togglePassword"></i>
+        </div>
+
+        <div class="strength-meter">
+            <div id="strength-bar" class="strength-bar"></div>
+        </div>
+        <div class="strength-feedback">
+            <span id="strength-text"></span>
+            <div class="info-hover">
+                <i class="fas fa-info-circle"></i>
+                <div class="info-tooltip" id="suggestions-tooltip">
+                    Add more character types to improve your password's strength.
+                </div>
+            </div>
+        </div>
+
+        <div class="password-details">
+            <div><strong>Time to Crack:</strong> <span id="crack-time">instant</span></div>
+            <div><strong>Entropy:</strong> <span id="entropy">0</span> bits</div>
+        </div>
+
+        <div class="password-criteria">
+            <ul id="criteria-list">
+                <li id="length"><i class="fas fa-times-circle"></i>At least 12 characters</li>
+                <li id="lowercase"><i class="fas fa-times-circle"></i>A lowercase letter</li>
+                <li id="uppercase"><i class="fas fa-times-circle"></i>An uppercase letter</li>
+                <li id="number"><i class="fas fa-times-circle"></i>A number</li>
+                <li id="special"><i class="fas fa-times-circle"></i>A special character</li>
+            </ul>
+        </div>
+
+        <div class="password-generator">
+            <button id="generate-password">Regenerate</button>
+            <button id="copy-password">Copy to Clipboard</button>
+        </div>
+
+        <div class="history-container">
+            <h3>Password History</h3>
+            <select id="password-history" size="3"></select>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Copied to clipboard!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
