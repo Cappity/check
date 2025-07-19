@@ -1,23 +1,23 @@
 /* --- General & Variables --- */
 :root {
-    --bg-color-dark: #0D1117;
-    --container-bg-dark: #161B22;
-    --text-color-dark: #E0E0E0;
-    --border-color-dark: #30363d;
+    --bg-color-dark: #0B0F1A;
+    --container-bg-dark: #131A26;
+    --text-color-dark: #E4E4E4;
+    --border-color-dark: #2D3644;
     --primary-green: #39FF14;
     --secondary-green: #2ECC71;
-    --strong-green: #28A745;
-    --button-green: #238636;
-    --button-hover-green: #2EA043;
-    --weak-red: #DC3545;
-    --medium-orange: #FFC107;
-    --subtle-text-dark: #888888;
+    --strong-green: #00FF95;
+    --button-green: #00C770;
+    --button-hover-green: #14E295;
+    --weak-red: #FF4D4F;
+    --medium-orange: #FFC75F;
+    --subtle-text-dark: #A0A0A0;
 
-    --bg-color-light: #F5F5F5;
+    --bg-color-light: #F8F9FA;
     --container-bg-light: #FFFFFF;
-    --text-color-light: #212121;
-    --border-color-light: #E0E0E0;
-    --subtle-text-light: #757575;
+    --text-color-light: #1F1F1F;
+    --border-color-light: #D1D9E6;
+    --subtle-text-light: #777;
 }
 
 body {
@@ -41,23 +41,23 @@ body.light-mode {
 }
 
 .container {
-    padding: 30px;
-    border-radius: 15px;
-    width: 420px;
+    padding: 35px;
+    border-radius: 20px;
+    width: 440px;
     text-align: center;
-    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    transition: all 0.4s ease;
 }
 
 body.dark-mode .container {
-    background-color: var(--container-bg-dark);
+    background: linear-gradient(135deg, #161B22 0%, #1E2531 100%);
     border: 1px solid var(--border-color-dark);
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.1);
 }
 
 body.light-mode .container {
-    background-color: var(--container-bg-light);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f1f1 100%);
     border: 1px solid var(--border-color-light);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 /* --- Theme Switcher --- */
@@ -67,48 +67,144 @@ body.light-mode .container {
     right: 20px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
-.switch { position: relative; display: inline-block; width: 44px; height: 24px; }
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
-.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
-input:checked + .slider { background-color: var(--button-green); }
-input:checked + .slider:before { transform: translateX(20px); }
-body.dark-mode .fa-sun { color: #888; }
-body.dark-mode .fa-moon { color: var(--primary-green); }
-body.light-mode .fa-sun { color: var(--medium-orange); }
-body.light-mode .fa-moon { color: #888; }
 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 26px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--button-green);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+body.dark-mode .fa-sun {
+    color: #666;
+}
+
+body.dark-mode .fa-moon {
+    color: var(--primary-green);
+}
+
+body.light-mode .fa-sun {
+    color: var(--medium-orange);
+}
+
+body.light-mode .fa-moon {
+    color: #666;
+}
 
 /* --- Header & Gamification --- */
 h1 {
     margin-bottom: 10px;
+    font-size: 1.8em;
     transition: color 0.4s ease;
 }
-body.dark-mode h1 { color: var(--primary-green); text-shadow: 0 0 5px rgba(57, 255, 20, 0.7); }
-body.light-mode h1 { color: #1a73e8; }
 
-.gamification-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.score-container { font-size: 1.1em; font-weight: bold; }
-.badge { font-weight: bold; padding: 4px 10px; border-radius: 12px; transition: all 0.4s ease; }
+body.dark-mode h1 {
+    color: var(--primary-green);
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.7);
+}
+
+body.light-mode h1 {
+    color: #1a73e8;
+}
+
+.gamification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+
+.badge {
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 12px;
+    background-color: rgba(0, 255, 149, 0.15);
+    border: 1px solid var(--strong-green);
+    color: var(--strong-green);
+    font-size: 0.95em;
+    transition: all 0.4s ease;
+}
 
 /* --- Password Input & Strength Meter --- */
-.password-input-container { position: relative; margin-bottom: 10px; }
+.password-input-container {
+    position: relative;
+    margin-bottom: 12px;
+}
+
 #password {
     width: 100%;
-    padding: 12px 40px 12px 12px;
+    padding: 12px 42px 12px 14px;
     border: 2px solid;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     box-sizing: border-box;
     transition: all 0.4s ease;
 }
-body.dark-mode #password { background-color: var(--bg-color-dark); color: var(--text-color-dark); border-color: var(--border-color-dark); }
-body.light-mode #password { background-color: #fff; color: var(--text-color-light); border-color: var(--border-color-light); }
-#password:focus { outline: none; }
-body.dark-mode #password:focus { border-color: var(--primary-green); }
-body.light-mode #password:focus { border-color: #1a73e8; }
+
+body.dark-mode #password {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    border-color: var(--border-color-dark);
+}
+
+body.light-mode #password {
+    background-color: #fff;
+    color: var(--text-color-light);
+    border-color: var(--border-color-light);
+}
+
+#password:focus {
+    outline: none;
+}
+
+body.dark-mode #password:focus {
+    border-color: var(--primary-green);
+}
+
+body.light-mode #password:focus {
+    border-color: #1a73e8;
+}
 
 #togglePassword {
     position: absolute;
@@ -118,20 +214,55 @@ body.light-mode #password:focus { border-color: #1a73e8; }
     cursor: pointer;
     transition: transform 0.2s ease, color 0.4s ease;
 }
-#togglePassword:hover { transform: translateY(-50%) scale(1.2); }
-body.dark-mode #togglePassword { color: var(--secondary-green); }
-body.light-mode #togglePassword { color: #1a73e8; }
 
+#togglePassword:hover {
+    transform: translateY(-50%) scale(1.2);
+}
 
-.strength-meter { height: 12px; background-color: #30363d; border-radius: 6px; overflow: hidden; margin-bottom: 5px; }
-body.light-mode .strength-meter { background-color: #E0E0E0; }
-.strength-bar { height: 100%; width: 0; transition: width 0.5s ease-out, background-color 0.5s ease-out; }
+body.dark-mode #togglePassword {
+    color: var(--secondary-green);
+}
 
-.strength-feedback { display: flex; justify-content: space-between; align-items: center; font-weight: bold; min-height: 24px; }
-#strength-text { font-size: 1.1em; }
+body.light-mode #togglePassword {
+    color: #1a73e8;
+}
 
-.info-hover { position: relative; }
-.info-hover .fa-info-circle { cursor: pointer; }
+.strength-meter {
+    height: 14px;
+    background-color: #2b2f3a;
+    border-radius: 7px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+body.light-mode .strength-meter {
+    background-color: #ddd;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease-out, background-color 0.5s ease-out;
+}
+
+.strength-feedback {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    min-height: 26px;
+    font-size: 1.05em;
+}
+
+.info-hover {
+    position: relative;
+}
+
+.info-hover .fa-info-circle {
+    cursor: pointer;
+    color: var(--subtle-text-dark);
+}
+
 .info-tooltip {
     display: none;
     position: absolute;
@@ -139,85 +270,138 @@ body.light-mode .strength-meter { background-color: #E0E0E0; }
     right: -10px;
     background-color: #333;
     color: #fff;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border-radius: 6px;
     font-size: 0.9em;
-    width: 200px;
+    width: 220px;
     text-align: left;
     z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-.info-hover:hover .info-tooltip { display: block; }
-body.light-mode .info-tooltip { background-color: #555; }
 
+.info-hover:hover .info-tooltip {
+    display: block;
+}
+
+body.light-mode .info-tooltip {
+    background-color: #555;
+}
 
 /* --- Details & Criteria --- */
-.password-details { display: flex; justify-content: space-between; margin: 15px 0; font-size: 0.9em; }
-body.dark-mode .password-details { color: var(--subtle-text-dark); }
-body.light-mode .password-details { color: var(--subtle-text-light); }
-
-
-.password-criteria ul { list-style: none; padding: 0; text-align: left; }
-.password-criteria li {
-    margin-bottom: 8px;
-    transition: all 0.4s ease;
-    opacity: 0.5;
-    transform: translateX(-10px);
+.password-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 0;
+    font-size: 0.95em;
 }
+
+.password-criteria ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 15px 0;
+}
+
+.password-criteria li {
+    margin-bottom: 10px;
+    transition: all 0.4s ease;
+    opacity: 0.4;
+    transform: translateX(-10px);
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
 .password-criteria li.met {
     opacity: 1;
     transform: translateX(0);
+    color: var(--strong-green);
 }
-body.dark-mode .password-criteria li.met { color: var(--strong-green); }
-body.light-mode .password-criteria li.met { color: #2e7d32; }
 
 .password-criteria li i {
     margin-right: 8px;
     transition: transform 0.3s ease-out;
 }
+
 .password-criteria li.met i {
     transform: rotate(360deg);
+    color: var(--strong-green);
 }
 
 /* --- Controls & History --- */
-.password-generator { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.password-generator {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
 button {
-    padding: 12px 15px;
+    padding: 12px 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.4s ease, box-shadow 0.2s ease;
 }
+
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 }
-body.dark-mode button { background-color: var(--button-green); color: #fff; }
-body.dark-mode button:hover { background-color: var(--button-hover-green); }
-body.light-mode button { background-color: #1a73e8; color: #fff; }
-body.light-mode button:hover { background-color: #1558b3; }
 
-.history-container { margin-top: 25px; text-align: left; }
+body.dark-mode button {
+    background-color: var(--button-green);
+    color: #fff;
+}
+
+body.dark-mode button:hover {
+    background-color: var(--button-hover-green);
+}
+
+body.light-mode button {
+    background-color: #1a73e8;
+    color: #fff;
+}
+
+body.light-mode button:hover {
+    background-color: #125abf;
+}
+
+.history-container {
+    margin-top: 28px;
+    text-align: left;
+}
+
 #password-history {
     width: 100%;
-    border-radius: 8px;
-    padding: 8px;
+    border-radius: 10px;
+    padding: 10px;
     font-size: 14px;
     transition: all 0.4s ease;
 }
-body.dark-mode #password-history { background-color: var(--bg-color-dark); color: var(--text-color-dark); border: 1px solid var(--border-color-dark); }
-body.light-mode #password-history { background-color: #fff; color: var(--text-color-light); border: 1px solid var(--border-color-light); }
+
+body.dark-mode #password-history {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color-dark);
+}
+
+body.light-mode #password-history {
+    background-color: #fff;
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color-light);
+}
 
 /* --- Toast Notification --- */
 .toast {
     visibility: hidden;
     min-width: 250px;
-    background-color: #333;
+    background-color: #222;
     color: #fff;
     text-align: center;
-    border-radius: 8px;
-    padding: 16px;
+    border-radius: 10px;
+    padding: 16px 20px;
     position: fixed;
     z-index: 1;
     left: 50%;
@@ -225,7 +409,9 @@ body.light-mode #password-history { background-color: #fff; color: var(--text-co
     bottom: 30px;
     opacity: 0;
     transition: opacity 0.5s, bottom 0.5s;
+    font-weight: 500;
 }
+
 .toast.show {
     visibility: visible;
     opacity: 1;
